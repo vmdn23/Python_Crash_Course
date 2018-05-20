@@ -1,5 +1,13 @@
 #!/usr/bin/python3
-An ice cream stand is a specific kind of restaurant. Write a class called IceCreamStand that inherits from the Restaurant class you wrote in Exercise 9-1 (page 166) or Exercise 9-4 (page 171). Either version of the class will work; just pick the one you like better. Add an attribute called flavors that stores a list of ice cream flavors. Write a method that displays theese flavors. Create an instance of IceCreamStand, and call this method."""
+"""
+An ice cream stand is a specific kind of restaurant.
+Write a class called IceCreamStand that inherits from the
+Restaurant class you wrote in Exercise 9-1 (page 166) or
+Exercise 9-4 (page 171). Either version of the class will work;
+just pick the one you like better. Add an attribute called
+flavors that stores a list of ice cream flavors. Write a method
+that displays these flavors. Create an instance of IceCreamStand,
+and call this method.
 """
 
 
@@ -30,15 +38,22 @@ class Restaurant():
         """Allow user to increment the number of customers served."""
         self.number_served += additional_served
 
-restaurant = Restaurant('Hamazushi', 'sushi')
-restaurant.describe_restaurant()
+class IceCreamStand(Restaurant):
+    """A class that represents an ice cream stand."""
 
-print("\nNumber served: " + str(restaurant.number_served))
-restaurant.number_served = 888
-print("Number served: " + str(restaurant.number_served))
+    def __init__(self, name, cuisine_type="ice_cream"):
+        """Initializes an ice cream stand."""
+        super().__init__(name, cuisine_type)
+        self.flavors = []
 
-restaurant.set_number_served(4615)
-print("Number served: " + str(restaurant.number_served))
+    def show_flavors(self):
+        """Display the flavors that are available."""
+        print("\nWe have the following flavors available:")
+        for flavor in self.flavors:
+            print("- " + flavor.title())
 
-restaurant.increment_number_served(920)
-print("Number served: " + str(restaurant.number_served))
+smitten = IceCreamStand("Smitten Ice Cream")
+smitten.flavors = ["Strawberry Buttermilk", "Salted Caramel", "Cookie Dough"]
+
+smitten.describe_restaurant()
+smitten.show_flavors()
