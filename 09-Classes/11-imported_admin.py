@@ -5,7 +5,8 @@ Create a separate file, make an Admin instance, and call
 show_priveleges() to show that everything is working correctly.
 """
 
-from user import Admin
+from user import User
+from admin import Admin
 
 
 musashi = Admin("musashi", "miyamoto", "m_miyamoto",
